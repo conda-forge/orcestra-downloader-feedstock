@@ -1,41 +1,41 @@
 context:
-  version: 0.13.0
-  python_min: 3.10
+  version: "0.14.0"
+  python_min: '3.10'
 
 package:
   name: orcestra-downloader
   version: ${{ version }}
 
 source:
-- url: https://pypi.org/packages/source/o/orcestra-downloader/orcestra_downloader-${{ version }}.tar.gz
-  sha256: bb30e10fc60d2fd2c56112cd49e70a10a8f458342d42597143c46a7c9f450a15
+  - url: https://pypi.org/packages/source/o/orcestra-downloader/orcestra_downloader-${{ version }}.tar.gz
+    sha256: 428a43302d4a0684dc287c0ce48fbe77c792ab8789f47666b6e163ab995a8387
 
 build:
   script: ${{ PYTHON }} -m pip install .
   python:
     entry_points:
-    - orcestra = orcestradownloader.cli.cli:cli
-    - orcestra-downloader = orcestradownloader.cli.cli:cli
+      - orcestra = orcestradownloader.cli.cli:cli
+      - orcestra-downloader = orcestradownloader.cli.cli:cli
   noarch: python
   number: 0
 
 requirements:
   host:
-  - python ${{ python_min }}.*
-  - hatchling
-  - pip
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
   run:
-  - python >=${{ python_min }}
-  - aiohttp >=3.11.4
-  - click >=8.1.7
-  - 'rich '
+    - python >=${{ python_min }}
+    - aiohttp >=3.11.4
+    - click >=8.1.7
+    - 'rich '
 
 tests:
-- python:
-    python_version: ${{ python_min }}.*
-    imports:
-    - orcestradownloader
-    pip_check: true
+  - python:
+      python_version: ${{ python_min }}.*
+      imports:
+        - orcestradownloader
+      pip_check: true
 
 about:
   summary: Simplified access to download data from orcestra.ca
