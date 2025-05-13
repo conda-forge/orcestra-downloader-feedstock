@@ -1,5 +1,5 @@
 context:
-  version: "0.14.0"
+  version: "0.15.0"
   python_min: '3.10'
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/o/orcestra-downloader/orcestra_downloader-${{ version }}.tar.gz
-    sha256: 428a43302d4a0684dc287c0ce48fbe77c792ab8789f47666b6e163ab995a8387
+    sha256: 9bdaf15e1ca9cc51a11d0a2b35381440bbc64315d8b3ff8e543739f30b431a5c
 
 build:
   script: ${{ PYTHON }} -m pip install .
